@@ -58,17 +58,16 @@ const Home = () => {
 
       <section className="w-full h-full  " id="inicio">
 
-        <div className="relative h-screen w-full overflow-hidden">
+        <div className="relative h-screen w-full">
           <video
             autoPlay
             loop
             muted
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover brightness-50"
           >
             <source src={Video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
             <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
             <AnimatedTextword text="Salta | Jujuy" />
