@@ -54,9 +54,9 @@ const Home = () => {
 
   return (
 
-    <main  className="h-full  w-full relative overflow-y-auto overflow-x-hidden  " onScroll={handleScroll} ref={container} >
+    <main  className="h-full w-full relative overflow-y-auto overflow-x-hidden  " onScroll={handleScroll} ref={container} >
 
-      <section className="w-full h-full  " id="inicio">
+      <section className="w-full h-full" id="inicio">
 
         <div className="relative h-screen w-full">
           <video
@@ -64,7 +64,7 @@ const Home = () => {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover brightness-50"
+            className="absolute inset-0 w-full h-full object-cover brightness-50 z-20"
           >
             <source src={Video} type="video/mp4" />
 
