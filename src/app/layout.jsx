@@ -13,6 +13,21 @@ export const metadata = {
   title: "RE/MAX NOA SALTA",
   description: "Somos la RED Inmobilaria N°1 del mundo",
   // manifest: "/manifest.json",
+
+  // openGraph: {
+  //   images: [
+  //     {
+  //       url: "/og-image.png",
+  //       width: 1200,
+  //       height: 630,
+  //     },
+  //     {
+  //       url: "/og-image-square.png",
+  //       width: 400,
+  //       height: 400,
+  //     },
+  //   ],
+  // }
 };
 
 export default function RootLayout({ children }) {

@@ -18,7 +18,7 @@ const WhatsApp = () => {
              
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://wa.me/+543876364202?text=Quiero mas info..."
+                href="https://wa.me/+5493876852073?text=Quiero mas info..."
                 className=""
             >
                 <Image
