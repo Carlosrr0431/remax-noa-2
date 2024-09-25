@@ -11,7 +11,7 @@ import { Analytics } from "@vercel/analytics/react"
 export const metadata = {
   title: "RE/MAX NOA SALTA",
   description: "Somos la RED Inmobilaria N°1 del mundo",
-  manifest: "/manifest.json",
+  // manifest: "/manifest.json",
 
   // openGraph: {
   //   images: [

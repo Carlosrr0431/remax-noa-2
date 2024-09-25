@@ -27,7 +27,7 @@ export const FooterSencillo = () => {
                             width={120}
                             height={80}
                             alt=""
-                            priority={true}
+
 
                         /></Link>
 

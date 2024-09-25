@@ -18,7 +18,6 @@ import img2 from '../public/0193 - _F6_0986 B.jpg'
 import img3 from '../public/0220 - _F6_1138 B.jpg'
 import img4 from '../public/0155 - DSC_5731 B (1).jpg'
 import img5 from '../public/0145 - 7H1A0377 B.jpg'
-import img6 from '../public/0015-_F6_9849+B.jpg'
 
 import Link from 'next/link';
 
@@ -74,6 +73,8 @@ export const SwiperOficina = () => {
                             SUMATE AL EQUIPO
                         </button>
                     </div> : <Image
+
+                        src={img4}
                         alt="image 2"
                         className="h-full  w-full object-cover"
                         width={2000}
@@ -101,7 +102,7 @@ export const SwiperOficina = () => {
                                 SUMATE AL EQUIPO
                             </button></Link>
                     </div> : <Image
-
+                        src={img2}
                         alt="image 2"
                         className="h-full  w-full object-cover"
                         width={2000}
@@ -130,6 +131,7 @@ export const SwiperOficina = () => {
                                 SUMATE AL EQUIPO
                             </button></Link>
                     </div> : <Image
+                        src={img3}
                         alt="image 2"
                         className="h-full  w-full object-cover"
                         width={2000}
@@ -158,6 +160,7 @@ export const SwiperOficina = () => {
                                 SUMATE AL EQUIPO
                             </button></Link>
                     </div> : <Image
+                        src={img5}
                         alt="image 2"
                         className="h-full  w-full object-cover"
                         width={2000}

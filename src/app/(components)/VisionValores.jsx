@@ -70,9 +70,9 @@ export const VisionValores = () => {
 
     return (
         <section className="relative overflow-hidden bg-gradient-to-br from-blue-700 to-blue-900 py-20 text-white sm:rounded-t-[150px] rounded-t-[100px] mt-[650px] sm:mt-0 ">
-            <div className="absolute inset-0 overflow-hidden">
+            {/* <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-10"></div>
-            </div>
+            </div> */}
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
