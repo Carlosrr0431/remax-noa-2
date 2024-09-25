@@ -6,7 +6,6 @@ import Providers from "./(providers)/Providers";
 import { Toaster } from "sonner";
 import WhatsApp from "./(components)/WhatsApp";
 import { Suspense } from "react";
-import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
@@ -65,8 +64,6 @@ export default function RootLayout({ children }) {
           </Suspense>
         </Providers>
       </body>
-
-      <GoogleTagManager gtmId="GTM-W6FSVHGS" />
     </html>
   );
 }

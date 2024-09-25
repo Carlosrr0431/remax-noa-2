@@ -57,19 +57,37 @@ const Home = () => {
     <main main className="h-full  w-full relative overflow-y-auto overflow-x-hidden  " onScroll={handleScroll} ref={container} >
 
       <section className="w-full h-full  " id="inicio">
-        <div className="w-full h-full   ">
-          <div className={` text-center montserrat flex   flex-col justify-center xl:mx-auto w-full items-center  xl:text-center h-full container `}>
-            {/* <h1
 
-              className=" h2 text-[32px] xl:text-[45px] xl:w-[1100px] font-medium mx-auto items-center text-center fontMatroska"
-            >
-              <span className="">Únete al Éxito con</span> RE/MAX Noa Salta <br />
-            </h1> */}
-
+        <div className="relative h-screen w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={Video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
             <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
             <AnimatedTextword text="Salta | Jujuy" />
             <Link href={'#formulario'}>
-              {/* <Button class="text-white  hover:bg-black/90  font-semibold hover:text-white py-0.5 px-4 bg-sky-950 hover:border-transparent rounded-sm" variant="outline">UNIRSE </Button> */}
+              <motion.button initial="initial"
+                variants={fadeInAnimationVariants}
+                whileInView="animate"
+                viewport={{ once: true }}
+                custom={1} className="bg-primary text-primary-foreground shadow hover:bg-primary/90 text-white  font-semibold hover:text-white py-0.5 px-4  hover:border-transparent rounded-sm mt-[40px]">
+                UNIRSE
+              </motion.button>
+            </Link>
+          </div>
+        </div>
+        {/* <div className="w-full h-full   ">
+          <div className={` text-center montserrat flex   flex-col justify-center xl:mx-auto w-full items-center  xl:text-center h-full container `}>
+            <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
+            <AnimatedTextword text="Salta | Jujuy" />
+            <Link href={'#formulario'}>
               <motion.button initial="initial"
                 variants={fadeInAnimationVariants}
                 whileInView="animate"
@@ -81,20 +99,12 @@ const Home = () => {
           </div>
         </div>
         <div className="brightness-50 xl:bg-right xl:bg-no-repeat w-full h-full  translate-z-50  absolute inset-0   -z-20">
-          {/* <video src={Video} autoPlay muted loop className="object-cover h-[100%] w-[100%] z-20 absolute" /> */}
-
           <video autoPlay muted loop className="object-cover h-[100%] w-[100%] z-20 absolute">
             <source media="(min-width: 2000px)" src={Video} type="video/mp4" />
             <source media="(min-width: 500px)" src={Video} type="video/mp4" />
           </video>
 
-          {/* <Image src={Degradado}
-            width={0}
-
-            height={0}
-            alt=""
-            className="w-full  h-full absolute z-20 inset-0 object-cover mix-blend-multiply" /> */}
-        </div>
+        </div> */}
 
       </section>
 

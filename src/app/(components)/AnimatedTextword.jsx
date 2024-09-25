@@ -81,7 +81,7 @@ export const AnimatedTextword = ({ text }) => {
                     key={index}
                     className={`${index == 4 ? 'relative  flex justify-center items-center ml-[5px]' : ''}`}
                 >
-                    {index == 4 ? <Image src={UniteRemaxLogo} width={`${ancho <= 600 ? "200" : "300"}`} height={`${ancho <= 600 ? "200" : "300"}`} alt="h-full w-full " /> : index == 5 ? '' : word}
+                    {index == 4 ? <Image src={UniteRemaxLogo} width={`${ancho <= 600 ? "200" : "300"}`} height={`${ancho <= 600 ? "200" : "300"}`} alt="" /> : index == 5 ? '' : word}
 
                     {/* {numberOfCharacters(word)} */}
                 </motion.span>
