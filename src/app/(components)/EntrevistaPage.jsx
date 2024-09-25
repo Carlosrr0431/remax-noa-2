@@ -76,7 +76,7 @@ const formSchema = z.object({
         .any()
         .refine((file) => file?.length !== 0, "File is required")
         .refine((file) => file.size < MAX_FILE_SIZE, "Max size is 5MB.")
-        // .refine((file) => checkFileType(file), "Only .pdf, .docx formats are supported.")
+    // .refine((file) => checkFileType(file), "Only .pdf, .docx formats are supported.")
 })
 
 import { motion } from "framer-motion";
@@ -173,22 +173,8 @@ export const EntrevistaPage = () => {
 
                                 <CardContent className="space-y-4">
                                     {/* sm:space-x-2 sm:justify-center sm:items-center space-y-2 */}
-                                    <div className="sm:flex sm:space-x-2 space-y-2 sm:space-y-0">
-                                        <FormField
-                                            control={form.control}
-                                            name="username"
-                                            id="username"
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel>Nombre y Apellido</FormLabel>
-                                                    <FormControl>
-                                                        <Input placeholder="Ingresar nombre" {...field} />
-                                                    </FormControl>
+                                    <div className="space-y-2">
 
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
 
                                         <FormField
                                             control={form.control}
@@ -242,46 +228,7 @@ export const EntrevistaPage = () => {
                                         />
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <FormField
-                                            control={form.control}
-                                            name="telefono"
-                                            id="telefono"
-                                            render={({ field }) => (
-                                                <FormItem>
 
-                                                    <FormLabel>Telefono</FormLabel>
-
-                                                    <FormControl>
-
-                                                        <InputOTP {...field} maxLength={10}>
-                                                            <InputOTPGroup>
-                                                                <InputOTPSlot index={0} />
-                                                                <InputOTPSlot index={1} />
-                                                                <InputOTPSlot index={2} />
-                                                                <InputOTPSlot index={3} />
-                                                            </InputOTPGroup>
-                                                            <InputOTPSeparator />
-                                                            <InputOTPGroup>
-                                                                <InputOTPSlot index={4} />
-                                                                <InputOTPSlot index={5} />
-                                                                <InputOTPSlot index={6} />
-                                                                <InputOTPSlot index={7} />
-                                                                <InputOTPSlot index={8} />
-                                                                <InputOTPSlot index={9} />
-                                                            </InputOTPGroup>
-                                                        </InputOTP>
-
-                                                    </FormControl>
-
-                                                    <FormMessage />
-
-
-
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
 
                                     <div className="space-y-2">
 
