@@ -64,7 +64,7 @@ const Home = () => {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover brightness-50 z-20"
+            className="absolute inset-0 w-full h-full object-cover brightness-50"
           >
             <source src={Video} type="video/mp4" />
 
