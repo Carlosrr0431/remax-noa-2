@@ -57,36 +57,8 @@ const Home = () => {
     <main main className="h-full  w-full relative overflow-y-auto overflow-x-hidden  " onScroll={handleScroll} ref={container} >
 
       <section className="w-full h-full  " id="inicio">
-        <div className="w-full h-full   ">
-          <div className={` text-center montserrat flex   flex-col justify-center xl:mx-auto w-full items-center  xl:text-center h-full container `}>
-            <h1
 
-              className=" h2 text-[32px] xl:text-[45px] xl:w-[1200px] font-medium mx-auto items-center text-center fontMatroska"
-            >
-              <span className="texto-borde">Sumate a la experiencia</span> REMAX NOA <br />
-            </h1>
-
-            <Link href={'/planes'}>
-              <button class=" text-black  hover:bg-black/90  font-semibold hover:text-white py-0.5 px-4 bg-fondo1 hover:border-transparent ">
-                VER PLANES
-              </button></Link>
-          </div>
-        </div>
-
-
-        <div className="xl:bg-right xl:bg-no-repeat w-full h-full  translate-z-50  absolute inset-0   -z-20    ">
-          <video src={Video} autoPlay muted loop className="object-cover h-[100%] w-[100%]" />
-
-          {/* <Image src={Degradado}
-            width={0}
-
-            height={0}
-            alt=""
-            className="w-full  h-full absolute z-20 inset-0 object-cover mix-blend-multiply" /> */}
-        </div>
-
-
-        {/* <div className="relative h-screen w-full">
+        <div className="relative h-screen w-full">
           <video
             autoPlay
             loop
@@ -94,7 +66,7 @@ const Home = () => {
             className="absolute inset-0 w-full h-full object-cover brightness-50"
           >
             <source src={Video} type="video/mp4" />
-            Your browser does not support the video tag.
+
           </video>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
             <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
@@ -109,7 +81,7 @@ const Home = () => {
               </motion.button>
             </Link>
           </div>
-        </div> */}
+        </div>
         {/* <div className="w-full h-full   ">
           <div className={` text-center montserrat flex   flex-col justify-center xl:mx-auto w-full items-center  xl:text-center h-full container `}>
             <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
