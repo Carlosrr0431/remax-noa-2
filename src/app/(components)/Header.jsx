@@ -50,7 +50,7 @@ const Header = () => {
                   alt=""
                   priority={true}
                   // lg:mx-0 lg:start-1 lg:translate-y-14 lg:items-start lg:-translate-x-[80px]
-                  className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden -z-20' : ''} object-cover`}
+                  className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden -z-20' : ''} object-cover relative right-[70px]`}
 
                 />
 
@@ -74,7 +74,7 @@ const Header = () => {
               </motion.div>
             </div> */}
 
-            <div className="invisible sm:visible order-first relative left-[85px]  sm:left-[70px]  sm:order-none">
+            <div className="invisible sm:visible order-first relative left-[85px]  sm:left-[50px]  sm:order-none">
               <motion.div
                 className="relative p-[0.5px] overflow-hidden rounded-full"
                 style={{

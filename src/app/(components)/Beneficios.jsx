@@ -7,7 +7,11 @@ import TrabajaAutonomo from '../public/TRABAJA DE FORMA AUTONOMA.svg'
 import Capacitaciones from '../public/CAPACITACIONES CONSTANTES.svg'
 import NegociosCompartidos from '../public/NEGOCIOS COMPARTIDOS.svg'
 import RespaldoMundial from '../public/RESPALDO DE UNA MARCA MUNDIAL.svg'
+import RemaxTech from '../public/REMAX TECH.svg'
 import Image from 'next/image';
+
+
+
 
 const fadeInAnimationVariants = {
     initial: (i) => ({
@@ -38,12 +42,12 @@ export const Beneficios = ({ scrollNum }) => {
     // Respaldo de una marca mundial N° 1 y que quede el icono de RespaldoMundial
     // Quitar "Red Inmobilaria N°1 del Mundo" para agregar Herramientas Tecnologicas
     const beneficiosArticles = [
-        { id: 1, title: "Red Inmobilaria N°1 del Mundo", icon: <Image src={RedInmobilaria} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
+        { id: 1, title: "Herramientas Tecnologicas", icon: <Image src={RemaxTech} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
         { id: 2, title: "Maximizá tus ingresos", icon: <Image src={MaximizaIngresos} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
         { id: 3, title: "Trabaja en forma autonoma", icon: <Image src={TrabajaAutonomo} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
         { id: 4, title: "Capacitaciones constantes", icon: <Image src={Capacitaciones} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
         { id: 5, title: "Negocios Compartidos", icon: <Image src={NegociosCompartidos} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
-        { id: 6, title: "Respaldo de una marca mundial", icon: <Image src={RespaldoMundial} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
+        { id: 6, title: "Respaldo de una marca mundial N°1", icon: <Image src={RespaldoMundial} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
     ];
 
 
