@@ -8,8 +8,6 @@ import { sendContactForm } from "../lib/api.js";
 
 export const ModalUser = ({ setShowModal, info }) => {
 
-
-
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('')
 
@@ -28,6 +26,7 @@ export const ModalUser = ({ setShowModal, info }) => {
         })
         console.log(await response.json())
     }
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-center p-24">
             <form onSubmit={sendMail} className="h-full w-1/3 space-y-6">
@@ -36,7 +35,7 @@ export const ModalUser = ({ setShowModal, info }) => {
                 </div>
                 <div className="relative flex flex-col space-y-1">
                     <label htmlFor="title" className="text-sm font-light text-gray-500">
-                        Subject
+                        Subtitulo
                     </label>
                     <input
                         name="title"
@@ -53,7 +52,7 @@ export const ModalUser = ({ setShowModal, info }) => {
                 </div>
                 <div className="relative flex flex-col space-y-1">
                     <label htmlFor="title" className="text-sm font-light text-gray-500">
-                        What would you need help with? 
+                        HTML EMPOTRADO
                     </label>
                     <textarea
                         name="description"
