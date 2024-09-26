@@ -1,3 +1,4 @@
+import { SendEmail } from "@/app/(components)/SendEmail";
 import { supabaseClient } from "@/supabase/client";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
@@ -50,23 +51,8 @@ const handler = NextAuth({
           role: "member",
         });
 
-        const sendMail = async (e) => {
-          const response = await fetch("/api/sendEmail", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify({
-              nombre: user.name,
-              email: user.email,
-            }),
-          });
-          console.log(await response.json());
-        };
 
-        console.log("se creo el usuario: " + result2);
-
-        await sendMail();
+        await SendEmail();
       }
 
       return true;
