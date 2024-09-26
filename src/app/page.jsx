@@ -3,7 +3,8 @@
 import { useRef, useState } from "react";
 import TestimonialSlider from "./(components)/TestimonialSlider";
 import Link from "next/link";
-import Video from './public/video_convención 2024.mp4'
+import Video from './public/video 1920x1080_convención 2024.mp4'
+import Video2 from './public/videoPortada2.mp4'
 import { useAppContext } from "./(context)/AppWrapper";
 import { FormularioCaptacion } from "./(components)/FormularioCaptacion";
 import { AnimatedTextword } from "./(components)/AnimatedTextword";
@@ -54,20 +55,18 @@ const Home = () => {
 
   return (
 
-    <main  className="h-full w-full relative overflow-y-auto overflow-x-hidden  " onScroll={handleScroll} ref={container} >
+    <main className="h-full w-full relative overflow-y-auto overflow-x-hidden" onScroll={handleScroll} ref={container} >
 
       <section className="w-full h-full" id="inicio">
 
         <div className="relative h-screen w-full">
           <video
+            src={Video}
             autoPlay
             loop
             muted
-            crossOrigin="anonymous"
-            playsInline
             className="absolute inset-0 w-full h-full object-cover brightness-50"
           >
-            <source src={Video} type="video/mp4" />
 
           </video>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">

@@ -34,6 +34,9 @@ export const Beneficios = ({ scrollNum }) => {
     const [showModal, setShowModal] = useState(false);
     const [tipoArea, setTipoArea] = useState("");
 
+
+    // Respaldo de una marca mundial N° 1 y que quede el icono de RespaldoMundial
+    // Quitar "Red Inmobilaria N°1 del Mundo" para agregar Herramientas Tecnologicas
     const beneficiosArticles = [
         { id: 1, title: "Red Inmobilaria N°1 del Mundo", icon: <Image src={RedInmobilaria} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },
         { id: 2, title: "Maximizá tus ingresos", icon: <Image src={MaximizaIngresos} width={0} height={0} alt='' className='w-[48px] h-[48px] sm:w-[50px] sm:h-[50px] group-hover:scale-105 ' /> },

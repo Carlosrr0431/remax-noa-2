@@ -64,8 +64,9 @@ export const VisionValores = () => {
 
     const visionPoints = [
         { icon: <Rocket className="h-8 w-8" />, title: "Visión", description: "Somos el equipo que eligen los mejores agentes/dueños del 40% del mercado." },
-        { icon: <Target className="h-8 w-8" />, title: "Valores", description: "Confianza, enfoque, generosidad, compromiso, pasión." },
         { icon: <Zap className="h-8 w-8" />, title: "Misión", description: "Llevar a nuestros agentes al Hall Of Fame en 4 años." },
+        { icon: <Target className="h-8 w-8" />, title: "Valores", description: "Confianza, enfoque, generosidad, compromiso, pasión." },
+
     ]
 
     return (

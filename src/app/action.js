@@ -8,6 +8,7 @@ import { v2 as cloudinary } from "cloudinary";
 import Oracion from "./models/Oracion";
 import { NextResponse } from "next/server";
 import moment from "moment-timezone";
+import { z } from "zod";
 
 cloudinary.config({
   cloud_name: "dlxwkq6bm",
@@ -26,13 +27,12 @@ export async function guardarFomulario(datos) {
     }
   );
 
-
   const result3 = await supabase.from("formularioIngreso").insert({
     nombre: datos.username,
     email: datos.email,
     oficina: datos.oficina,
     telefono: datos.telefono,
-    cv: datos.cv
+    cv: datos.cv,
   });
 
   console.log(result3);
@@ -40,7 +40,46 @@ export async function guardarFomulario(datos) {
   return { message: "Success" };
 }
 
+export async function uploadPDF(formData) {
+  const cookieStore = cookies();
 
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: () => cookieStore,
+    }
+  );
+
+  const file = formData.get("file");
+  const email = formData.get("email");
+  const oficina = formData.get("oficina");
+
+  const bytes = await file.arrayBuffer();
+  const buffer = Buffer.from(bytes);
+
+  const result = await new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream({}, (err, result) => {
+        if (err) reject(err);
+
+        resolve(result);
+      })
+      .end(buffer);
+  });
+
+  console.log("Resultado del pdf: " + result.secure_url);
+
+  const result3 = await supabase.from("formularioCV").insert({
+    oficina: oficina,
+    email: email,
+    cv: result.secure_url,
+  });
+
+  console.log(result3);
+
+  return { success: true, message: "File uploaded successfully!" };
+}
 
 export async function postData(formData, userName, email) {
   const message = formData.get("message");

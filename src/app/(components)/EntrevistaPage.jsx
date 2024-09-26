@@ -48,39 +48,31 @@ const override = {
 };
 
 
-const fileTypes = ["JPG", "PNG", "PDF"];
-const MAX_FILE_SIZE = 10000000000;
-
-// function checkFileType(file) {
-//     if (file?.name) {
-//         const fileType = file.name.split(".").pop();
-//         if (fileType === "docx" || fileType === "pdf") return true;
-//     }
-//     return false;
-// }
+const MAX_FILE_SIZE = 5000000 // 5MB
+const ACCEPTED_FILE_TYPES = ['application/pdf']
 
 const formSchema = z.object({
-    username: z.string().min(2, {
-        message: "El nombre debe contener al menos 4 letras",
-    }),
+
     email: z
         .string()
         .min(1, { message: "El correo es invalido" })
         .email("Debe completar como ejemplo@ejem.com"),
 
-    oficina: z.string({ required_error: "Es necesario seleccionar una oficina" }),
+    oficina: z
+        .string()
+        .min(1, { message: "Debe seleccionar una oficina" }),
 
-    telefono: z.string({ required_error: "Es necesario ingresar el telefono" }),
-
-    cv: z
-        .any()
-        .refine((file) => file?.length !== 0, "File is required")
-        .refine((file) => file.size < MAX_FILE_SIZE, "Max size is 5MB.")
-    // .refine((file) => checkFileType(file), "Only .pdf, .docx formats are supported.")
+    file: z
+        .instanceof(File, { message: "No ingreso su CV" })
+        .refine((file) => file.size <= MAX_FILE_SIZE, `File size should be less than 5MB.`)
+        .refine(
+            (file) => ACCEPTED_FILE_TYPES.includes(file.type),
+            "Only PDF files are allowed."
+        )
 })
 
 import { motion } from "framer-motion";
-import { guardarFomulario } from "../action"
+import { guardarCV, guardarFomulario, uploadPDF } from "../action"
 
 
 const fadeInAnimationVariants = {
@@ -101,13 +93,10 @@ const fadeInAnimationVariants = {
 }
 
 export const EntrevistaPage = () => {
-    const [file, setFile] = useState(null);
+    const [isUploading, setIsUploading] = useState(false)
     const defaultValues = {
-        username: "",
         email: "",
         oficina: "",
-        telefono: "",
-        cv: ""
 
     }
     const form = useForm({
@@ -115,28 +104,38 @@ export const EntrevistaPage = () => {
         defaultValues,
     })
 
-    function onSubmit(values) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        // alert(JSON.stringify(values))
-        toast.success('Tus datos fueron enviados correctamente.', {
-            description: "Nos contactaremos contigo lo antes posible."
-        })
-        form.reset({
-            username: "",
-            email: "",
-            oficina: "",
-            telefono: "",
-            cv: ""
-        })
-        guardarFomulario(values)
+
+    async function onSubmit(values) {
+        setIsUploading(true)
+        const formData = new FormData()
+        formData.append('file', values.file)
+        formData.append('email', values.email)
+        formData.append('oficina', values.oficina)
+
+
+
+
+        try {
+            const result = await uploadPDF(formData)
+            if (result.success) {
+                toast.success('Tus datos fueron enviados correctamente.', {
+                    description: "Nos contactaremos contigo lo antes posible."
+                })
+                form.reset()
+            } else {
+                toast.error('Tus datos fueron enviados correctamente.', {
+                    description: "Nos contactaremos contigo lo antes posible."
+                })
+            }
+        } catch (error) {
+            toast.error('Tus datos fueron enviados correctamente.', {
+                description: "Nos contactaremos contigo lo antes posible."
+            })
+        } finally {
+            setIsUploading(false)
+        }
     }
 
-    const handleChange = (file) => {
-
-        console.log(file);
-        setFile(file);
-    };
 
     return (
         <div className="flex h-screen  w-full">
@@ -154,7 +153,7 @@ export const EntrevistaPage = () => {
 
             {/* Mitad derecha */}
             {/* bg-gradient-to-bl from-blue-500 to-blue-800 */}
-            <div className="w-[100%]  h-[50%] sm:h-full sm:mt-0 sm:w-1/2  flex items-center justify-center p-8 sm:bg-gradient-to-r sm:from-indigo-500 sm:from-10% sm:via-sky-500 via-30% sm:to-emerald-500 sm:to-90%  relative" >
+            <div className="w-full  h-[50%] sm:h-full sm:mt-0 sm:w-1/2  flex items-center justify-center p-0 sm:bg-gradient-to-r sm:from-indigo-500 sm:from-10% sm:via-sky-500 via-30% sm:to-emerald-500 sm:to-90%  relative" >
                 <motion.div
 
 
@@ -163,16 +162,17 @@ export const EntrevistaPage = () => {
                     whileInView="animate"
                     viewport={{ once: true }}
                     custom={1}
-                    className="p-0 mt-[1000px] sm:p-6  sm:mt-[100px] sm:mx-auto items-center">
+                    className="p-1 mt-[1000px] sm:p-6 w-full sm:mt-[100px] sm:mx-auto ">
                     <Form {...form} >
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="">
-                            <Card className="w-full mb-[100px] sm:mb-0 max-w-md mx-auto relative bottom-[50px] border-[1px] border-black/30">
+
+                        <form onSubmit={form.handleSubmit(onSubmit)} >
+                            <Card className="w-full min-w-[350px]  mb-[100px] sm:mb-0 sm:max-w-md sm:mx-auto relative bottom-[50px] border-[1px] border-black/30 ">
                                 <CardHeader>
                                     <CardTitle className="text-2xl font-bold text-center">Ingresá tus datos</CardTitle>
                                 </CardHeader>
 
                                 <CardContent className="space-y-4">
-                                    {/* sm:space-x-2 sm:justify-center sm:items-center space-y-2 */}
+
                                     <div className="space-y-2">
 
 
@@ -234,13 +234,23 @@ export const EntrevistaPage = () => {
 
                                         <FormField
                                             control={form.control}
-                                            name="cv"
-                                            id="cv"
+                                            name="file"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>CV</FormLabel>
+                                                    <FormLabel>Cargar CV</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="Ingresar nombre" {...field} type="file" />
+                                                        <Input
+                                                            type="file"
+                                                            accept=".pdf"
+                                                            onChange={(e) => {
+                                                                const file = e.target.files?.[0]
+                                                                if (file) {
+                                                                    field.onChange(file)
+                                                                }
+                                                            }}
+                                                            className="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-primary-foreground hover:file:bg-primary/90 h-auto w-full text-[12px] font-medium "
+
+                                                        />
                                                     </FormControl>
 
                                                     <FormMessage />
@@ -250,10 +260,15 @@ export const EntrevistaPage = () => {
 
 
                                     </div>
+
+
+
                                 </CardContent>
 
                                 <CardFooter>
-                                    <Button className="w-full" type="submit">Enviar</Button>
+                                    <Button type="submit" disabled={isUploading} className="w-full">
+                                        {isUploading ? 'Cargando...' : 'Enviar'}
+                                    </Button>
                                 </CardFooter>
                             </Card>
 

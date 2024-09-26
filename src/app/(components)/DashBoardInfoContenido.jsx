@@ -131,10 +131,6 @@ const DashBoardInfoContenido = ({ tipo }) => {
 
                             <Image class=" w-full h-full  max-h-[200px]  object-cover" src={elem.imagen} alt="product image" width={800} height={800} />
 
-
-
-
-
                             <div className='flex h-[150px] flex-col'><h5 class="text-xl  px-5  tracking-tight text-slate-900 mb-5 text-wrap">{elem.titulo}</h5>
 
                                 <p class="text-[15px]  px-5  tracking-tight text-slate-900 text-wrap">{elem.descripcion}</p></div>
@@ -145,8 +141,6 @@ const DashBoardInfoContenido = ({ tipo }) => {
 
                                 </p>
                             </div>
-
-
 
                             <div className="flex  gap-x-4 mx-auto mb-4 mt-2" >
                                 <button

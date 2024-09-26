@@ -13,13 +13,15 @@ import { useAppContext } from "../(context)/AppWrapper";
 import Home from "../public/inicio icono.svg";
 import Conocenos from "../public/conocenos icono.svg";
 import Testimonios from "../public/feedback-review_13085382.svg";
-import Contactar from "../public/bubble-discussion_17699776.svg";
+import Contactar from "../public/curriculum_profile_biodata_resume_portofolio_cv_vitae_icon_232635.svg";
+
+
 
 export const navData = [
   { name: "Inicio", path: "/#inicio", icon: Home },
   { name: "Conocenos", path: "/#nosotros", icon: Conocenos },
   { name: "Testimonios", path: "/#testimonios", icon: Testimonios },
-  { name: "Contactar", path: "/contactanos", icon: Contactar },
+  { name: "Enviar CV", path: "/contactanos", icon: Contactar },
 ]
 const Nav = () => {
   const pathname = usePathname();
@@ -53,17 +55,23 @@ const Nav = () => {
               key={index}
               href={link.path}
             >
-              <div className="absolute pr-10 right-0 hidden xl:group-hover:flex">
+              <div className="absolute  pr-10 right-0 hidden xl:group-hover:flex">
                 <div className=" relative flex bg-black/30  p-2 text-white items-center  rounded-[15px] ">
                   <div className="text-[13px] text-end  font-regular w-auto text-nowrap leading-none   uppercase">
                     {link.name}
                   </div>
+                  {/* <div className="border-solid border-l-white border-l-8 border-y-transparent border-y-[10px]border-r-0 absolute -right-2">
+                    {" "}
+                  </div> */}
                 </div>
               </div>
 
-              <div className="" >
-                <Image src={link.icon} width={0} height={0} alt="" className={`${link.name == 'Mi Semilla' ? '-mb-2' : ''} max-w-[25px] max-h-[25px] transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]`} />
+              <div className={`flex  flex-col justify-center items-center gap-y-1  ${link.name == 'Eventos' || link.name == 'Ubicacion' ? 'mt-[2px]' : 'mt-[5px]'} `} >
+                <Image src={link.icon} width={0} height={0} alt="" className={`${link.name == 'Mi Semilla' ? 'xl:mb-0' : 'xl:mb-2'} max-w-[25px]  max-h-[25px] transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none  active:opacity-[0.85] ${link.name == 'Eventos' || link.name == 'Ubicacion' ? 'max-w-[22px] max-h-[22px]  ' : ''} `} />
+                <p className="text-[11px] text-center  font-bold xl:hidden block">{link.name}</p>
               </div>
+
+
             </Link>
           );
         })}

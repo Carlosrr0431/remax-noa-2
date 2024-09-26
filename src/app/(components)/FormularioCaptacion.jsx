@@ -47,7 +47,7 @@ const formSchema = z.object({
 
     oficina: z.string({ required_error: "Es necesario seleccionar una oficina" }),
 
-    telefono: z.string({ required_error: "Es necesario ingresar el telefono" })
+    telefono: z.string().min(10, { message: "El telefono es invalido" })
 })
 
 import { motion } from "framer-motion";
