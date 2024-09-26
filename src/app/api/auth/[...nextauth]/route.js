@@ -50,19 +50,23 @@ const handler = NextAuth({
           role: "member",
         });
 
-        const response = await fetch("/api/sendEmail", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({
-            nombre: user.name,
-            email: user.email,
-          }),
-        });
-        console.log(await response.json());
+        const sendMail = async (e) => {
+          const response = await fetch("/api/sendEmail", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({
+              nombre: user.name,
+              email: user.email,
+            }),
+          });
+          console.log(await response.json());
+        };
 
         console.log("se creo el usuario: " + result2);
+
+        await sendMail();
       }
 
       return true;
