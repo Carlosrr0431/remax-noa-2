@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { DowloadPDF } from './DowloadPDF';
+import { Button } from '@/components/ui/button';
+import { FileDown } from 'lucide-react';
 
 export const FormulariosCVDashboard = () => {
     const [ingresos, setIngresos] = useState();
@@ -80,7 +82,15 @@ export const FormulariosCVDashboard = () => {
                                     <td class="p-4 border-b border-blue-gray-50">
                                         <div class="flex flex-col">
                                             <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                                <DowloadPDF url={user.cv} />
+                                                <Link href={user.cv} download='cv.pdf'>
+                                                    <Button
+
+                                                        className="flex items-center space-x-2 bg-primary text-primary-foreground hover:bg-primary/90"
+                                                    >
+                                                        <FileDown className="w-4 h-4" />
+
+                                                    </Button>
+                                                </Link>
                                             </p>
 
                                         </div>
