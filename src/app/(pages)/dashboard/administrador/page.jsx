@@ -70,16 +70,28 @@ const DashBoard = () => {
               className="my-2 mr-10 h-px border-t-0 bg-white bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-100" />
             {
               panel == 'Datos' ? (
-                <><div role="button"
-                  onClick={() => handleClick("Ingresos")}
-                  className={`flex text-white items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900  gap-x-4 ${tipo == 'Ingresos' ? 'font-bold' : ''}`}>
-                  <div className="grid mr-6 place-items-center">
-                    {/* <Image src={Ofrenda} alt="" width={0} height={0} className="w-6 h-6 mr-2  fill-black" /> */}
+                <>
+                  <div role="button"
+                    onClick={() => handleClick("Ingresos")}
+                    className={`flex text-white items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900  gap-x-4 ${tipo == 'Ingresos' ? 'font-bold' : ''}`}>
+                    <div className="grid mr-6 place-items-center">
+                      {/* <Image src={Ofrenda} alt="" width={0} height={0} className="w-6 h-6 mr-2  fill-black" /> */}
 
-                    <BiMoneyWithdraw className="w-6 h-6 -mr-4" />
+                      <BiMoneyWithdraw className="w-6 h-6 -mr-4" />
+                    </div>
+                    Formularios Web
                   </div>
-                  Formularios Web
-                </div>
+
+                  <div role="button"
+                    onClick={() => handleClick("Cv")}
+                    className={`flex text-white items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900  gap-x-4 ${tipo == 'Cv' ? 'font-bold' : ''}`}>
+                    <div className="grid mr-6 place-items-center">  
+                      {/* <Image src={Ofrenda} alt="" width={0} height={0} className="w-6 h-6 mr-2  fill-black" /> */}
+
+                      <BiMoneyWithdraw className="w-6 h-6 -mr-4" />
+                    </div>
+                    Formularios CV
+                  </div>
                   {/* <div role="button"
                     onClick={() => handleClick("Control De Ingresos")}
                     className={`flex items-center text-white w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900 gap-x-4 ${tipo == 'Control De Ingresos' ? 'font-bold' : ''}`}>
