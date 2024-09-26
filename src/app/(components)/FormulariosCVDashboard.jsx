@@ -1,14 +1,16 @@
 import { supabaseClient } from '@/supabase/client';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import { DowloadPDF } from './DowloadPDF';
 
-export const Ingresos = () => {
+export const FormulariosCVDashboard = () => {
     const [ingresos, setIngresos] = useState();
 
     useEffect(() => {
         const getSupabaseOficial = async () => {
             let data = await supabaseClient
-                .from("formularioIngreso")
+                .from("formularioCV")
                 .select("*").order('id', { ascending: true })
 
             setIngresos(data.data)
@@ -39,7 +41,7 @@ export const Ingresos = () => {
 
                             <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
                                 <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                                    Telefono
+                                    CV
                                 </p>
                             </th>
                             <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
@@ -59,9 +61,6 @@ export const Ingresos = () => {
                                             <Image width={0} height={0} src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg"
                                                 alt="John Michael" class="relative inline-block h-9 w-9 !rounded-full object-cover object-center" />
                                             <div class="flex flex-col">
-                                                <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                                    {user.nombre}
-                                                </p>
                                                 <p
                                                     class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
                                                     {user.email}
@@ -81,7 +80,7 @@ export const Ingresos = () => {
                                     <td class="p-4 border-b border-blue-gray-50">
                                         <div class="flex flex-col">
                                             <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                                {user.telefono}
+                                                <DowloadPDF url={user.cv} />
                                             </p>
 
                                         </div>
@@ -114,5 +113,3 @@ export const Ingresos = () => {
         </div>
     )
 }
-
-
