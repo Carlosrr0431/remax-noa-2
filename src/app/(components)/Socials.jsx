@@ -32,7 +32,7 @@ const Socials = () => {
       <Link href={'#formulario'} className="duration-300 transition-all hover:scale-105  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] text-white font-light montserrat hover:font-medium"> Sumate </Link>
     </div>
 
-    <div className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden' : ''} flex sm:hidden gap-x-12 items-center justify-center `}>
+    <div className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden' : ''} flex sm:hidden gap-x-12 items-center justify-center bottom-[50px] relative`}>
 
       <Link href={'https://www.facebook.com/remaxnoasalta'} target="_blank" className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Facebook} width={10} height={10} alt="" /> </Link>
 

@@ -50,7 +50,7 @@ const Header = () => {
                   alt=""
                   priority={true}
                   // lg:mx-0 lg:start-1 lg:translate-y-14 lg:items-start lg:-translate-x-[80px]
-                  className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden -z-20' : ''} object-cover relative right-[70px]`}
+                  className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden -z-20' : ''} object-cover relative right-0 bottom-[50px] sm:right-[70px]`}
 
                 />
 
