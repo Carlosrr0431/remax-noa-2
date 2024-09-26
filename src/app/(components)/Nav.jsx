@@ -39,7 +39,7 @@ const Nav = () => {
         <Link target="_blank" href={'https://www.facebook.com/remaxnoasalta'} className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Facebook} width={10} height={10} alt="" /> </Link>
 
         <Link target="_blank" href={'https://www.instagram.com/remaxnoa.arg/'} className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Instagram} width={20} height={20} alt="" /> </Link>
-        <Link target="_blank" href={''} className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Tiktok} width={20} height={20} alt="" /> </Link>
+
         <Link target="_blank" href={'https://wa.me/+5493876852073?text=Quiero mas info...'} className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={WhatsApp} width={20} height={20} alt="" /> </Link>
       </div>
 
