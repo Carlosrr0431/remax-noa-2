@@ -88,7 +88,7 @@ export const FormulariosCVDashboard = () => {
                                                         className="flex items-center space-x-2 bg-primary text-primary-foreground hover:bg-primary/90"
                                                     >
                                                         <FileDown className="w-4 h-4" />
-
+                                                            Descargar PDF
                                                     </Button>
                                                 </Link>
                                             </p>

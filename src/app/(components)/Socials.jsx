@@ -34,7 +34,7 @@ const Socials = () => {
 
     <div className={`${pathname == '/cursos' || pathname == '/planes' || pathname == '/about' || cambioHeader ? 'hidden' : ''} flex sm:hidden gap-x-12 items-center justify-center bottom-[50px] relative`}>
 
-      <Link href={'https://www.facebook.com/remaxnoasalta'} target="_blank" className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Facebook} width={10} height={10} alt="" /> </Link>w
+      <Link href={'https://www.facebook.com/remaxnoasalta'} target="_blank" className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Facebook} width={10} height={10} alt="" /> </Link>
 
       <Link href={'https://www.instagram.com/remaxnoa.arg/'} target="_blank" className="duration-300 transition-all hover:scale-110  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"> <Image src={Instagram} width={20} height={20} alt="" /> </Link>
 
