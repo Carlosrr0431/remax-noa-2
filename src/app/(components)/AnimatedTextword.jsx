@@ -79,9 +79,9 @@ export const AnimatedTextword = ({ text }) => {
                     variants={child}
                     style={{ marginRight: "7px" }}
                     key={index}
-                    className={`${index == 4 ? 'relative  flex justify-center items-center ml-[5px]' : ''}`}
+                    className={`${index == 4 ? 'relative  flex justify-center items-center ml-[5px]' : word == '|' ? 'bottom-1 relative' : ''}`}
                 >
-                    {index == 4 ? <Image src={UniteRemaxLogo} width={`${ancho <= 600 ? "200" : "300"}`} height={`${ancho <= 600 ? "200" : "300"}`} alt="" /> : index == 5 ? '' : word}
+                    {index == 4 ? <Image src={UniteRemaxLogo} width={`${ancho <= 600 ? "200" : "300"}`} height={`${ancho <= 600 ? "200" : "300"}`} alt="" /> : index == 5  ? '' : word}
 
                     {/* {numberOfCharacters(word)} */}
                 </motion.span>

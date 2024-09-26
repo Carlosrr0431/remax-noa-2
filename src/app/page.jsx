@@ -70,8 +70,10 @@ const Home = () => {
 
           </video>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-            <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
-            <AnimatedTextword text="Salta | Jujuy" />
+            <div className="flex flex-col items-center -space-y-9 sm:-space-y-4 justify-center">
+              <AnimatedTextword text="Únete al Éxito con RE/MAX NOA" />
+              <AnimatedTextword text="Salta | Jujuy" />
+            </div>
             <Link href={'#formulario'}>
               <motion.button initial="initial"
                 variants={fadeInAnimationVariants}
